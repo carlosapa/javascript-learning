@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script src="../jquery-1.9.0.min.js"></script>
+<script src="../easing.js"></script>
+<style>
+li {
+	list-style: none;
+	color:#ccc;
+}
+
+li.desp {
+	font-family: arial;
+	text-transform: uppercase;
+	display: inline-block;
+	width: 135px;
+	float:left;
+	background-color:#eee;
+	margin-right: 15px;
+	height: auto;
+}
+
+span.title {
+	color:#333;
+	display: block;
+	overflow:hidden;
+}
+
+ul.go {
+	margin: 20px 0 0 0;
+	border:0px solid #333;
+	padding:0 13px;
+	border-radius: 3px;
+	background-color: #eee;
+	height: 0px;
+	overflow: hidden;
+}
+
+li > ul.go li {
+	opacity:0;
+}
+
+
+li > ul.go li span.more {
+	float: right;
+	margin: 0 20px 0 0;
+}
+
+</style>
+
+<script>
+$(function() {
+
+
+$(".desp").on({
+	mouseenter: function(e){
+		$("ul.go", this).stop(true, true) //this is context of event
+		.animate({
+			"height":200+"px",
+			"padding-bottom":13,
+			"padding-top":13,
+			"border-width":1
+		},200 , "easeInOutBounce", function(){
+			$("li", this).stop(true, true).animate({"opacity":1},300);
+		});
+	},
+	mouseleave: function(e){
+		$("ul.go", this).stop(true, true)
+		.animate({
+			"height":0,
+			"padding-bottom":0,
+			"padding-top":0,
+			"border-width":0		
+		},100, function(){
+			$("li", this).stop(true, true).animate({"opacity":0},300);
+		});	
+	}
+});
+});
+</script>
+
+</head>
+<body>
+
+
+<ul>
+	<li class="desp">
+		<div>
+		<span class="title">Elemento 1</span>
+		<ul class="go">
+			<li>Elemento 1.1</li>
+			<li>Elemento 1.2</li>
+			<li>Elemento 1.3</li>
+		</ul>
+		</div>
+	</li>
+	
+	<li class="desp">
+		<div>
+		<span class="title">Elemento 2</span>
+		<ul class="go">
+			<li>Elemento 2.1<span class="more">></span></li>
+			<li>Elemento 2.2</li>
+		</ul>
+		</div>
+	</li>
+	<li class="desp">
+		<div>
+<span class="title">Elemento 3</span>
+		<ul class="go">
+			<li>Elemento 2.1</li>
+			<li>Elemento 2.2</li>
+		</ul>
+</div>
+	</li>
+		<li class="desp">
+		<div>
+<span class="title">Elemento 3</span>
+		<ul class="go">
+			<li>Elemento 2.1</li>
+			<li>Elemento 2.2</li>
+		</ul>
+</div>
+	</li>
+		<li class="desp">
+		<div>
+<span class="title">Elemento 3</span>
+		<ul class="go">
+			<li>Elemento 2.1</li>
+			<li>Elemento 2.2</li>
+		</ul>
+</div>
+	</li>
+		<li class="desp">
+		<div>
+<span class="title">Elemento 3</span>
+		<ul class="go">
+			<li>Elemento 2.1</li>
+			<li>Elemento 2.2</li>
+		</ul>
+</div>
+	</li>
+		<li class="desp">
+		<div>
+<span class="title">Elemento 3</span>
+		<ul class="go">
+			<li>Elemento 2.1</li>
+			<li>Elemento 2.2</li>
+		</ul>
+</div>
+	</li>
+	<li class="desp">
+		<span class="title">Elemento 4</span>
+	</li>
+</ul>
+
+
+</body>
+</html>
